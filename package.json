@@ -9,16 +9,28 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@carbon/ibmdotcom-web-components": "^2.10.0",
+    "@carbon/icons-react": "^11.45.0",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.5",
+    "@types/mdx": "^2.0.13",
+    "lit-element": "^4.0.6",
+    "lit-html": "^3.1.4",
+    "next": "14.2.5",
+    "next-mdx-remote": "^5.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.5"
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^1.0.0",
+    "remark-mdx-frontmatter": "^5.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5"
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
   }
 }
