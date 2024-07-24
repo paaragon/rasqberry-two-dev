@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { C4DBackgroundMedia, C4DButtonGroup, C4DButtonGroupItem, C4DImageItem, C4DLeadspace, C4DLeadspaceHeading } from "@/components/carbon-wrapper";
+import { C4DBackgroundMedia, C4DButtonGroup, C4DButtonGroupItem, C4DLeadspace, C4DLeadspaceHeading } from "@/components/carbon-wrapper";
 import React from "react";
 
 import styles from './lead-space.module.scss'

@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 
 interface Props {
   children: React.ReactNode;
-  frontmatter: any
 }
 
 export default function RootLayout({
