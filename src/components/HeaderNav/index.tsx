@@ -5,19 +5,11 @@ import { ReactElement, useState } from "react"
 
 import styles from './header-nav.module.scss'
 
-type NavItemWithChildren = {
-    url: string
-    children?: never
-}
-
-type NavItemWithoutchildren = {
-    url?: never
-    children?: NavItem[]
-}
-
-type NavItem = {
+export type NavItem = {
     label: string
-} & (NavItemWithChildren | NavItemWithoutchildren)
+    url?: string
+    children: NavItem[]
+}
 
 interface Props {
     items: NavItem[]
@@ -52,7 +44,7 @@ export function HeaderNav({ items }: Props) {
 }
 
 function getMenuItem(item: NavItem): ReactElement {
-    if (item.children) {
+    if (item.children && item.children.length > 0) {
         return <HeaderMenu key={item.label} aria-label={item.label} menuLinkName={item.label}>
             {item.children.map(child => getMenuItem(child))}
         </HeaderMenu>

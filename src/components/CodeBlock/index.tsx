@@ -12,11 +12,9 @@ export function CodeBlock({ code, theme = 'dark' }: Props) {
         text={code}
         language={'shell'}
         showLineNumbers={false}
-        copied={true}
         theme={monokai}
-        codeBlock={true}
         customStyle={{
-            border: 'none'
+            padding: '1rem'
         }}
     />
 }
