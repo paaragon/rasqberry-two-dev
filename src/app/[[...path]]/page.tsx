@@ -18,7 +18,7 @@ interface Props {
     }
 }
 
-const contentPath = join('content')
+const contentPath = join(process.cwd(), 'content')
 
 export async function generateStaticParams() {
     const paths = await getPaths(contentPath)

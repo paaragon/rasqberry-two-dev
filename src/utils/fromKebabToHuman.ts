@@ -1,3 +1,4 @@
 export function fromKebabToHuman(str: string): string {
-  return str.replace(/-/g, " ");
+  let result = str.replace(/-/g, " ");
+  return result.charAt(0).toUpperCase() + result.slice(1).toLowerCase();
 }
