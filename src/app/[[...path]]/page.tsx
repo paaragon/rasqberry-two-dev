@@ -78,7 +78,6 @@ function addPathsToNavItems(navItems: NavItem[], paths: { path: string[] }, leve
 
 async function getPaths(contentPath: string): Promise<{ path: string[] }[]> {
     const content = await fs.readdir(contentPath, { withFileTypes: true, recursive: true })
-    console.log(JSON.stringify(content, null, 2))
 
     const paths = content.filter(page => !page.isDirectory()).map(page => {
         const parentPath = page.parentPath.replace(`${contentPath}`, '')
