@@ -40,8 +40,6 @@ export default async function Page({ params }: Props) {
     const path = params.path || ['index']
     const file = await fs.readFile(join(process.cwd(), 'content', `${path.join('/')}.md`), 'utf8');
 
-    const toc: string[] = []
-
     const { content, frontmatter } = await compileMDX({
         source: file,
         options: { parseFrontmatter: true },
