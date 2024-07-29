@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@carbon/ibmdotcom-styles": "^2.11.0",
     "@carbon/icons-react": "^11.45.0",
     "@carbon/react": "^1.62.1",
     "@codemirror/lang-python": "^6.1.6",
