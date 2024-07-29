@@ -4,6 +4,7 @@ import { LeadSpace, Props as LeadSpaceProps } from '@/components/LeadSpace'
 import styles from './page-layout.module.scss'
 import { Column, Grid } from "@/components/carbon-wrapper";
 import { TableOfContent, Props as TableOfContentProps } from "@/components/TableOfContent";
+import { HeaderNav } from "@/components/HeaderNav";
 
 interface Props {
     children: ReactElement,
@@ -16,6 +17,14 @@ interface Props {
 export function PageLayout({ children, frontmatter: { leadspace, tableofcontent } = {} }: Props) {
     return <>
         {leadspace && <LeadSpace {...leadspace} />}
+        <HeaderNav items={[
+            { label: 'Home', url: '/' },
+            {
+                label: 'Documentation', children: [
+                    { label: 'RasQberry_Setup', url: '/documentation/RasQberry_Setup' }
+                ]
+            }
+        ]} />
         <Grid className={styles['page-layout__main']}>
             <Column sm="100%">
                 <Grid>
