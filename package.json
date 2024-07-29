@@ -27,6 +27,7 @@
     "next-mdx-remote": "^5.0.0",
     "react": "^18",
     "react-children-utilities": "^2.10.0",
+    "react-code-blocks": "^0.1.6",
     "react-dom": "^18",
     "remark-gfm": "^1.0.0",
     "remark-mdx-frontmatter": "^5.0.0",

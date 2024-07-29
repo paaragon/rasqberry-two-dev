@@ -7,6 +7,7 @@ import { Ul } from '@/components/Markdown/Ul';
 import { Li } from '@/components/Markdown/Li';
 import { CodeBlock } from '@/components/CodeBlock';
 import Children from 'react-children-utilities'
+import { Code } from '@/components/Code';
 
 interface Props {
     params: {
@@ -45,7 +46,8 @@ export default async function Page({ params }: Props) {
         options: { parseFrontmatter: true },
         components: {
             h2: ({ children }) => <H2>{children}</H2>,
-            pre: ({ children }) => <CodeBlock>{Children.onlyText(children)}</CodeBlock>,
+            pre: ({ children }) => <CodeBlock code={Children.onlyText(children)} />,
+            code: ({children}) =>  <Code code={Children.onlyText(children)} />,
             ul: ({ children }) => <Ul>{children}</Ul>,
             li: ({ children }) => <Li>{children}</Li>,
         }
