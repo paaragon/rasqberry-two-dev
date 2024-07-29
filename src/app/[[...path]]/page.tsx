@@ -18,8 +18,9 @@ interface Props {
     }
 }
 
+const contentPath = join('content')
+
 export async function generateStaticParams() {
-    const contentPath = join(process.cwd(), 'content')
     const paths = await getPaths(contentPath)
 
     return paths.map(path => ({ path: path.path.map(p => p.toLowerCase()) }))
@@ -27,7 +28,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
     const path = params.path || ['index']
-    const contentPath = join(process.cwd(), 'content')
     const file = await fs.readFile(join(contentPath, `${path.join('/')}.md`), 'utf8');
     const navItems = await getNavItems()
 
@@ -54,7 +54,6 @@ export default async function Page({ params }: Props) {
 }
 
 async function getNavItems(): Promise<NavItem[]> {
-    const contentPath = join(process.cwd(), 'content')
     const paths = await getPaths(contentPath)
     const navItems: NavItem[] = []
     for (const path of paths) {
