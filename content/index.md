@@ -11,13 +11,17 @@ leadspace:
     image:
       src: https://picsum.photos/id/1076/1056/480
       alt: lead space background image
+tableofcontent:
+  items:
+  - "The RasQberry project: Exploring Quantum Computing and Qiskit with a Raspberry Pi and a 3D Printer"
+  - Qiskit on Raspberry Pi
+  - Documentation
+  - Quick Installation of RasQberry
 ---
 
 ![](Artwork/RasQberry_back_Bloch__DSC07046s.jpg)
 ![](Artwork/RasQberry_front.jpg)
 ![](https://github.com/JanLahmann/RasQberry/assets/26198628/465e444c-24bb-42f5-a873-73fffa816680)
-
-# RasQberry
 
 ## The RasQberry project: Exploring Quantum Computing and Qiskit with a Raspberry Pi and a 3D Printer
 
@@ -74,9 +78,4 @@ To start the tool again you can use
 
 in your terminal/ssh window.
 
-You can find the full instructions for the setup [here](./documentation/RasQberry_Setup.md).
-
-import { PageLayout } from "@/components/PageLayout";
-export default ({ children }) => (
-  <PageLayout frontmatter={frontmatter}>{children}</PageLayout>
-);
+You can find the full instructions for the setup [here](/documentation/RasQberry_Setup).

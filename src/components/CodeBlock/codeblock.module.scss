@@ -1,0 +1,84 @@
+@use '@carbon/colors';
+@use '@carbon/themes';
+@use '@carbon/layout';
+@use '@carbon/type';
+@use '~/src/styles/variables';
+
+.code-block {
+    &--light {
+        // code theme variables
+        --code-constant: #{colors.$teal-60}; // $cyan-50 used on platform
+        --code-string: #{colors.$magenta-60};
+        --code-comment: #{colors.$gray-50};
+        --code-keyword: #{colors.$teal-60};
+        --code-parameter: #{colors.$gray-100};
+        --code-function: #{colors.$gray-100};
+        --code-string-expression: #{colors.$magenta-60};
+        --code-punctuation: #{colors.$gray-100};
+        --code-link: #{colors.$blue-60};
+        --code-number: #{colors.$cyan-50};
+        // editor theme variables
+        --border-color: #{themes.$border-subtle-00};
+        --text-color: #{themes.$text-secondary};
+        --bg-color-hover: #{themes.$border-subtle-00};
+        --scrollbar-thumb-bg: var(--bg-color-hover);
+    }
+
+    &--dark {
+        // code theme variables
+        --code-constant: #{colors.$teal-40}; // $cyan-50 used on platform
+        --code-string: #{colors.$magenta-40};
+        --code-comment: #{colors.$gray-40};
+        --code-keyword: #{colors.$teal-40};
+        --code-parameter: #{colors.$white};
+        --code-function: #{colors.$white};
+        --code-string-expression: #{colors.$magenta-40};
+        --code-punctuation: #{colors.$white};
+        --code-link: #{colors.$blue-60};
+        --code-number: #{colors.$cyan-50};
+        // editor theme variables
+        --border-color: #{colors.$cool-gray-70};
+        --text-color: #{colors.$white};
+        --bg-color: #{colors.$cool-gray-90};
+        --bg-color-hover: #{colors.$cool-gray-100};
+        --scrollbar-bg: var(--bg-color);
+        --scrollbar-thumb-bg: #{colors.$cool-gray-80};
+    }
+
+    border-radius: variables.$border-radius;
+    position: relative;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    :global(.cm-line) {
+        @include type.type-style('code-01');
+    }
+}
+
+.code-block-editor {
+    padding: layout.$spacing-05;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        background: var(--scrollbar-bg);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-bg);
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: var(--scrollbar-bg);
+    }
+
+    :global(.cm-scroller) {
+        scrollbar-width: none;
+        overflow-x: visible;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

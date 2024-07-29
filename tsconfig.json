@@ -31,6 +31,6 @@
     "**/*.tsx",
     "carbon.d.ts",
     ".next/types/**/*.ts"
-, "src/app/(home)/page.mdx"  ],
+, "src/app/markdown-pages/page.mdx"  ],
   "exclude": ["node_modules"]
 }
