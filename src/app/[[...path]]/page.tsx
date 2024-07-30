@@ -66,6 +66,9 @@ async function getNavItems(): Promise<NavItem[]> {
 function addPathsToNavItems(navItems: NavItem[], paths: { path: string[] }, level: number = 0) {
     const { path } = paths
     const humanReadableLabel = fromKebabToHuman(path[level])
+    if (!humanReadableLabel) {
+        return
+    }
     const root = navItems.find(item => item.label === humanReadableLabel)
     if (root !== undefined && level < paths.path.length - 1) {
         addPathsToNavItems(root.children, paths, level + 1)

@@ -15,7 +15,7 @@
         padding-inline-start: 0;
     }
 
-    & :global(.cds--header__nav::before) {
-        display: none;
+    & :global(.cds--header__name) {
+        padding: 0 1rem 0 0;
     }
 }

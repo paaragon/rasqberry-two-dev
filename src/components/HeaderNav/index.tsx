@@ -27,6 +27,9 @@ export function HeaderNav({ items }: Props) {
             <Column sm="100%">
                 <Header aria-label="IBM Platform Name">
                     <SkipToContent />
+                    <HeaderName href="/" prefix="RasQberry" as={Link}>
+                        Two
+                    </HeaderName>
                     <HeaderMenuButton aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'} onClick={onClickSideNavExpand} isActive={isSideNavExpanded} aria-expanded={isSideNavExpanded} />
                     <HeaderNavigation>
                         {items.map(getMenuItem)}
