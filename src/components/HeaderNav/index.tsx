@@ -4,6 +4,7 @@ import { Header, HeaderName, HeaderMenuButton, SkipToContent, Grid, Column, Head
 import { ReactElement, useState } from "react"
 
 import styles from './header-nav.module.scss'
+import Link from "next/link"
 
 export type NavItem = {
     label: string
@@ -50,5 +51,5 @@ function getMenuItem(item: NavItem): ReactElement {
         </HeaderMenu>
     }
 
-    return <HeaderMenuItem href={item.url} key={item.label}>{item.label}</HeaderMenuItem>
+    return <HeaderMenuItem href={item.url || '/'} key={item.label} as={Link}>{item.label}</HeaderMenuItem>
 }

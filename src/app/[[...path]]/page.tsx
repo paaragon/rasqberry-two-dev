@@ -72,10 +72,7 @@ function addPathsToNavItems(navItems: NavItem[], paths: { path: string[] }, leve
 
         return
     }
-    let url = process.env.BASE_PATH ? `/${process.env.BASE_PATH}/` : '/'
-    url += path.join('/').toLowerCase()
-    console.log(url)
-
+    const url = path.join('/').toLowerCase()
     navItems.push({ label: humanReadableLabel || 'Home', url, children: [] })
 }
 
