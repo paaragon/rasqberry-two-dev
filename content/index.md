@@ -7,6 +7,7 @@ leadspace:
     primary:
       label: View On GitHub
       url: https://example.com
+      icon: logo-github
   bg:
     image:
       src: https://picsum.photos/id/1076/1056/480

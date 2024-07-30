@@ -67,13 +67,18 @@ function addPathsToNavItems(navItems: NavItem[], paths: { path: string[] }, leve
     const { path } = paths
     const humanReadableLabel = fromKebabToHuman(path[level])
     const root = navItems.find(item => item.label === humanReadableLabel)
-    if (root !== undefined) {
+    if (root !== undefined && level < paths.path.length - 1) {
         addPathsToNavItems(root.children, paths, level + 1)
 
         return
     }
     const url = path.join('/').toLowerCase()
-    navItems.push({ label: humanReadableLabel || 'Home', url, children: [] })
+    const navItem = { label: humanReadableLabel || 'Home', url, children: [] }
+    navItems.push(navItem)
+
+    if (level < paths.path.length - 1) {
+        addPathsToNavItems(navItem.children, paths, level + 1)
+    }
 }
 
 async function getPaths(contentPath: string): Promise<{ path: string[] }[]> {
