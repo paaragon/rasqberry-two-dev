@@ -6,7 +6,7 @@ leadspace:
   cta:
     primary:
       label: View On GitHub
-      url: https://example.com
+      url: https://github.com/JanLahmann/RasQberry-Two
       icon: logo-github
   bg:
     image:
@@ -45,7 +45,7 @@ Now run " IQ Qiskit Install" and install your preferred Qiskit version (1.0 or 1
 - **RQB2_menu.sh**: menu and sub-menu that integrate into raspi-config
 - **env-config.sh**: script to set environment variables, as defined in env
 - **env**: environment variables, being imported by env-config.sh
-- **rq_install_Qiskit\** *: install procedure for different Qiskit versions
+- **rq_install_Qiskit\***: install procedure for different Qiskit versions
 
 ### working with Qiskit
 

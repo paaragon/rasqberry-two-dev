@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RasQberry Two Github pages
 
-## Getting Started
+This is the github pages project for the RasQberry Two documentation page.
 
-First, run the development server:
+Is build using NextJS and deployed using Github Actions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How add content
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project is prepared to build the pages from the [`content`](https://github.com/paaragon/rasqberry-two-dev/tree/main/content) folder. It will create the same route hierarchy that is contained in the folder.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The `content` folder should contain Markdown files. Each file will be rendered and served as a page in the website.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Markdown page structure
 
-## Learn More
+Each markdown page have two sections:
 
-To learn more about Next.js, take a look at the following resources:
+- Frontmatter (optional): it is defined at the top of the file and delimited with `---` at the beginning and at the end of the section.
+- Content: the markdown content that will be rendered as the page content.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontmatter structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+We can define the following atributes in the frontmatter of each page:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+leadspace:
+  title: RasQberry Two
+  copy: "The RasQberry project: Exploring Quantum Computing and Qiskit with a Raspberry Pi and a 3D Printer"
+  size: tall
+  cta:
+    primary:
+      label: View On GitHub
+      url: https://github.com/JanLahmann/RasQberry-Two
+      icon: logo-github
+  bg:
+    image:
+      src: https://picsum.photos/id/1076/1056/480
+      alt: lead space background image
