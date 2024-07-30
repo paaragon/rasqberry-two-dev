@@ -6,18 +6,6 @@ leadspace:
     image:
       src: https://picsum.photos/id/1076/1056/480
       alt: lead space background image
-tableofcontent:
-  items:
-    - "Step 1: Get your Raspberry Pi ready"
-    - "Step 2: Enable SSH (optional)"
-    - "Step 3: Installing RasQberry"
-    - "Step 4: RasQberry Setup"
-    - "Update your IBM Quantum Experience API Token"
-    - "Cloning the Git-Repository with the Qiskit-tutorials"
-    - "Disable the Bloch Autostart"
-    - "Changing WIFI Settings"
-    - "Configuring Autohotspot"
-    - "Install VNC and VNC Viewer"
 ---
 
 # RasQberry Installation and Setup

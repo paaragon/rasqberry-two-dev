@@ -1,7 +1,7 @@
 'use client'
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { gml } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import styles from './code-block.module.scss'
 import { Copy } from '@carbon/icons-react';
@@ -21,7 +21,7 @@ export function CodeBlock({ code }: Props) {
     }
 
     return <div className={styles['code-block']}>
-        <SyntaxHighlighter language="bash" style={dark} PreTag={"code"} CodeTag={"span"} wrapLongLines={true} customStyle={{
+        <SyntaxHighlighter language="shell" style={gml} PreTag={"code"} CodeTag={"span"} wrapLongLines={true} customStyle={{
             padding: "1rem",
         }}>
             {code}

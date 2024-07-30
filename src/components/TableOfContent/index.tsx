@@ -55,6 +55,12 @@ export function TableOfContent({ items }: Props) {
         };
     }, [handleScroll, titles]);
 
+    function navigateToTitle(id: string) {
+        document.getElementById(id)?.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
     return <div className={styles['toc']}>
         <ul className={styles['toc__list']}>
             {items.map(item => {
@@ -67,14 +73,11 @@ export function TableOfContent({ items }: Props) {
         <Dropdown
             className={styles['toc__dropdown']}
             id="toc-dropdown"
-            items={items}
-            // itemToString={(item: BlogTag) => formatPostTag(item.name)}
-            // itemToElement={(item: BlogTag) => <PostTag tag={item} isFiltered={isFiltered(item, selectedTopic)} />}
             size="lg"
-            // onChange={(change: { selectedItem: BlogTag }) => navigateToTagFilter(change.selectedItem, router)}
-            selectedItem={items.find(item => toKebabCase(item) === activeId)}
+            onChange={(change: { selectedItem: string }) => navigateToTitle(toKebabCase(change.selectedItem))}
             hideLabel={true}
             label="Jump to section"
+            items={items}
         />
     </div>
 }
