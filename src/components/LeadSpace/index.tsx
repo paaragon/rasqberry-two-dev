@@ -56,7 +56,7 @@ export function LeadSpace({ title, copy, cta, bg, size = 'tall' }: Props) {
                 </Column>
             </Grid>
         </Grid>
-        {bg && <Grid className={styles['lead-space__bg']}>
+        {bg && <Grid className={styles['lead-space__bg']} condensed>
             <Column sm="100%">
                 {bg.gradient !== false && <div className={styles['lead-space__bg__gradient']} />}
                 <Image width={1280} height={1280} className={styles['lead-space__bg__image']} src={bg.image.src} alt={bg.image.alt} />

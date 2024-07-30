@@ -21,7 +21,7 @@ export function CodeBlock({ code }: Props) {
     }
 
     return <div className={styles['code-block']}>
-        <SyntaxHighlighter language="bash" style={dark} PreTag={"code"} CodeTag={"span"} customStyle={{
+        <SyntaxHighlighter language="bash" style={dark} PreTag={"code"} CodeTag={"span"} wrapLongLines={true} customStyle={{
             padding: "1rem",
         }}>
             {code}

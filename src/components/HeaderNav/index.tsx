@@ -37,6 +37,7 @@ export function HeaderNav({ items }: Props) {
                     <SideNav aria-label="Side navigation" expanded={isSideNavExpanded} isPersistent={false} onSideNavBlur={onClickSideNavExpand}>
                         <SideNavItems>
                             <HeaderSideNavItems>
+                                {getMenuItem({ label: 'Home', url: '/', children: [] })}
                                 {items.map(getMenuItem)}
                             </HeaderSideNavItems>
                         </SideNavItems>

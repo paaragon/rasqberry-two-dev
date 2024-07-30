@@ -9,10 +9,10 @@ interface Props {
 }
 
 export function Code({ code, theme = 'dark' }: Props) {
-    return <SyntaxHighlighter language="bash" style={dark} PreTag={"code"} CodeTag={"span"} customStyle={{
+    return <SyntaxHighlighter language="bash" style={dark} PreTag={"code"} CodeTag={"span"} wrapLongLines={true} customStyle={{
         display: "inline-block",
-        padding: "0.25rem",
-        lineHeight: "1.25rem",
+        padding: "0.125rem",
+        lineHeight: "1.50rem",
         marginBottom: "-0.5rem",
     }}>
         {code}

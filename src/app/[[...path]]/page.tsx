@@ -75,7 +75,7 @@ function addPathsToNavItems(navItems: NavItem[], paths: { path: string[] }, leve
 
         return
     }
-    const url = path.join('/').toLowerCase()
+    const url = `/${path.join('/').toLowerCase()}`
     const navItem = { label: humanReadableLabel || 'Home', url, children: [] }
     navItems.push(navItem)
 

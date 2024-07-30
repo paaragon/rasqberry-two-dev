@@ -1,6 +1,6 @@
 ---
 leadspace:
-  title: RasQberry
+  title: RasQberry Two
   copy: "The RasQberry project: Exploring Quantum Computing and Qiskit with a Raspberry Pi and a 3D Printer"
   size: tall
   cta:
