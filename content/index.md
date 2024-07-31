@@ -70,3 +70,5 @@ qiskit-qasm3-import    0.5.0
 ```
 
 Please let us know in case additional modules are needed.
+
+::youtube[Video of a cat in a box]{#2yJgwwDcgV8}

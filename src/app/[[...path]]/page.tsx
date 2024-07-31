@@ -1,8 +1,9 @@
 import { promises as fs } from 'fs';
 import { join } from 'path'
-import { FrontMatter, PageLayout } from "@/components/PageLayout";
+import { PageLayout } from "@/components/PageLayout";
 import { compileMDX } from 'next-mdx-remote/rsc'
 import { H2 } from '@/components/Markdown/H2';
+import remarkDirective from 'remark-directive'
 import { Ul } from '@/components/Markdown/Ul';
 import { Li } from '@/components/Markdown/Li';
 import { CodeBlock } from '@/components/CodeBlock';
@@ -11,6 +12,7 @@ import { Code } from '@/components/Code';
 import { NavItem } from '@/components/HeaderNav';
 import { fromKebabToHuman } from '@/utils/fromKebabToHuman';
 import { extractH2FromMd } from '@/utils/extractH2FromMd';
+import { youtubeMd } from '@/utils/remarkPlugins/youtubeMd';
 
 interface Props {
     params: {
@@ -33,14 +35,20 @@ export default async function Page({ params }: Props) {
 
     const { content, frontmatter } = await compileMDX({
         source: file,
-        options: { parseFrontmatter: true },
+        options: {
+            parseFrontmatter: true,
+            mdxOptions: {
+                remarkPlugins: [remarkDirective, youtubeMd]
+            }
+        },
         components: {
             h2: ({ children }) => <H2>{children}</H2>,
             pre: ({ children }) => <CodeBlock code={Children.onlyText(children)} />,
             code: ({ children }) => <Code code={Children.onlyText(children)} />,
             ul: ({ children }) => <Ul>{children}</Ul>,
             li: ({ children }) => <Li>{children}</Li>,
-        }
+            customDirective: ({ children }) => <p>{children}</p>
+        },
     })
 
     let tocItems: string[] = []
