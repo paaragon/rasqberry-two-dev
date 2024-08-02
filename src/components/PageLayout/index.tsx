@@ -8,16 +8,16 @@ import { HeaderNav, NavItem } from "@/components/HeaderNav";
 
 export interface FrontMatter {
     leadspace?: LeadSpaceProps
-    tableofcontent?: TableOfContentProps
 }
 
 interface Props {
     children: ReactElement,
     navItems?: NavItem[]
     frontmatter?: FrontMatter
+    tableofcontent: TableOfContentProps
 }
 
-export function PageLayout({ children, frontmatter: { leadspace, tableofcontent } = {}, navItems = [] }: Props) {
+export function PageLayout({ children, frontmatter: { leadspace } = {}, navItems = [], tableofcontent }: Props) {
     return <>
         {leadspace && <LeadSpace {...leadspace} />}
         <HeaderNav items={navItems} />

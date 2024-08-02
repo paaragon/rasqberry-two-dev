@@ -1,6 +1,6 @@
-import { promises as fs } from 'fs';
+import { promises as fs } from "fs";
 import { join } from 'path'
-import { PageLayout } from "@/components/PageLayout";
+import { FrontMatter, PageLayout } from "@/components/PageLayout";
 import { compileMDX } from 'next-mdx-remote/rsc'
 import { H2 } from '@/components/Markdown/H2';
 import remarkDirective from 'remark-directive'
@@ -13,6 +13,7 @@ import { NavItem } from '@/components/HeaderNav';
 import { fromKebabToHuman } from '@/utils/fromKebabToHuman';
 import { extractH2FromMd } from '@/utils/extractH2FromMd';
 import { youtubeMd } from '@/utils/remarkPlugins/youtubeMd';
+import { getPagesFilesPaths } from '@/utils/getPagesFilesPath';
 
 interface Props {
     params: {
@@ -23,7 +24,7 @@ interface Props {
 const contentPath = join(process.cwd(), 'content')
 
 export async function generateStaticParams() {
-    const paths = await getPaths(contentPath)
+    const paths = await getPagesFilesPaths(contentPath)
 
     return paths.map(path => ({ path: path.path.map(p => p.toLowerCase()) }))
 }
@@ -33,7 +34,7 @@ export default async function Page({ params }: Props) {
     const file = await fs.readFile(join(contentPath, `${path.join('/')}.md`), 'utf8');
     const navItems = await getNavItems()
 
-    const { content, frontmatter } = await compileMDX({
+    const { content, frontmatter } = await compileMDX<FrontMatter>({
         source: file,
         options: {
             parseFrontmatter: true,
@@ -51,18 +52,19 @@ export default async function Page({ params }: Props) {
         },
     })
 
-    let tocItems: string[] = []
-    if (frontmatter.tableofcontent !== false) {
-        tocItems = extractH2FromMd(file)
-    }
+    const tocItems = extractH2FromMd(file)
 
-    return <PageLayout frontmatter={{ ...frontmatter, tableofcontent: { items: tocItems } }} navItems={navItems}>
+    return <PageLayout
+        frontmatter={{ ...frontmatter }}
+        navItems={navItems}
+        tableofcontent={{ items: tocItems }}
+    >
         {content}
     </PageLayout>
 }
 
 async function getNavItems(): Promise<NavItem[]> {
-    const paths = await getPaths(contentPath)
+    const paths = await getPagesFilesPaths(contentPath)
     const navItems: NavItem[] = []
     for (const path of paths) {
         addPathsToNavItems(navItems, path)
@@ -90,25 +92,4 @@ function addPathsToNavItems(navItems: NavItem[], paths: { path: string[] }, leve
     if (level < paths.path.length - 1) {
         addPathsToNavItems(navItem.children, paths, level + 1)
     }
-}
-
-async function getPaths(contentPath: string): Promise<{ path: string[] }[]> {
-    const content = await fs.readdir(contentPath, { withFileTypes: true, recursive: true })
-
-    const paths = content.filter(page => !page.isDirectory()).map(page => {
-        const parentPath = page.parentPath.replace(`${contentPath}`, '')
-        const slugName = page.name
-            .replace('index', '')
-            .replace('.md', '')
-            .split('/')
-        const route = `${parentPath}/${slugName}`
-            .replace(/^\//, '')
-            .split('/')
-
-        return {
-            path: route,
-        }
-    })
-
-    return paths
 }
