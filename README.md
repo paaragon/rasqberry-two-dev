@@ -34,3 +34,19 @@ leadspace:
     image:
       src: https://picsum.photos/id/1076/1056/480
       alt: lead space background image
+
+### Markdown syntax available
+
+Apart from the standard Markdown syntax, there are some directives availables:
+
+#### Youtube videos
+
+```
+::youtube[description of the video]{#video-id}
+```
+
+Example
+
+```
+::youtube[Video of a cat in a box]{#2yJgwwDcgV8}
+```

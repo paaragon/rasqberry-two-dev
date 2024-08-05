@@ -1,13 +1,11 @@
 'use client'
 
-import { ReactElement } from "react";
 import React from "react";
 import Image from 'next/image';
 
 import styles from './lead-space.module.scss'
 import clsx from "clsx";
 import { Button, Column, Grid } from "@/components/carbon-wrapper";
-import { ArrowRight } from "@carbon/icons-react";
 import { icons } from "@/components/icons";
 
 export interface Props {
