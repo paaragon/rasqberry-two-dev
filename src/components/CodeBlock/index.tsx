@@ -13,7 +13,6 @@ interface Props {
 }
 
 export function CodeBlock({ code }: Props) {
-    const timeoutRef = useRef<NodeJS.Timeout>()
     const [copyText, setCopyText] = useState('Copy')
 
     function handleOnCopy() {
